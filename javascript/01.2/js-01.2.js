@@ -1,9 +1,11 @@
-//
-//
-//
-//
+// FUNÇÃO ANÔNIMA (SEM NOME) - precisa guardar a função dentro de uma variável
+/*
+function (n1,n2){
+return n1+n2
+}
+*/
 const soma = function (n1,n2){
-    return n1+n2;
+    return n1+n2; // recebe dois números como parâmetros e soma eles
 };
 document.write(`<p>O resultado da soma é ${soma(8,7)}.</p>`)
 const tipo = typeof(soma)

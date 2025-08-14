@@ -40,3 +40,30 @@ function userMessage(user) {
 }
 userMessage(user); // ARGUMENTO = o que estou enviando p função, esta fora dela, tem que ter o nome igual
 // SHIFT+ALT+F = formatar o código
+
+//---------------------------------------------------------------------------------------------------------------
+
+//FUNÇÃO COM MAIS DE UM PARÂMETRO
+const n1=10;
+const n2=12;
+
+function mult(n1,n2){
+  //essa função recebe dois parâmetros
+  let result = n1*n2;
+  document.write(`A multiplicação de ${n1} e ${n2} é igual a ${result}`);
+} mult(n1,n2);
+
+//---------------------------------------------------------------------------------------------------------------
+
+//FUNÇÃO COM DIFERENTES RETORNOS (USA RESTRUTUR ACONDICIONAL)
+const number = 5;
+function parImpar(number){
+  if(number%2==0){
+    return "par";
+  } else {
+    return "ímpar";
+  }
+}
+  document.write(`<br>O número ${number} é <strong> ${parImpar(number)} </strong>`);
+
+
