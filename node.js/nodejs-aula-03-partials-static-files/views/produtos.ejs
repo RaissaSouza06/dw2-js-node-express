@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos</title>
+  </head>
+  <body>
+    <h1>Bem-vindo a página de Produtos</h1>
+    <h2>Lista de Produtos:</h2>
+
+    <ul>
+      <%#= produtos %>
+      <!-- percorrendo a lista de produtos com forEach, preciso fechar a tag ejs p usar html -->
+       <!-- uso de igual apenas para variaveis <%#=%> -->
+        <!-- produtos é a lista de produtos
+         produto é apenas um elemento do array -->
+      <% produtos.forEach(produto => { %>
+      <li><%= produto.nome %></li>
+      <li><%= produto.preco.toLocaleString ("pt-br", {style: "currency", currency: "BRL"}) %></li>
+      <br>
+      <% }) %>
+    </ul>
+    <a href="/">Voltar</a>
+  </body>
+</html>
