@@ -64,9 +64,14 @@ app.get("/pedidos", (req, res) => {
 
 
 // ROTA DE PERFIL
-app.get("/perfil", (req, res) => {
-  //criando a variavel que será enviado para a página
-  const user = "Diego Max";
+// :user é um parametro da rota, nesse caso é um parametro obrigatório, VAI CAIR NA PROVA
+// :user? é um parametro de rota não obrigatorio
+app.get("/perfil/:user", (req, res) => {
+  // req = requesição
+  // res = resposta do servidor
+  const user = req.params.user
+  // coletando o parametro user da requisição e guardando na variavel user
+
   res.render("perfil", {
     //enviando variaveis para a página ejs (html)
     user: user,
