@@ -46,7 +46,7 @@ app.get("/perfil/:user", (req, res) => {
 
 // Iniciando o servidor HTTP
 // O servidor escutará na porta 8080
-const port = 8080;
+const port = 3000;
 
 app.listen(port, (error) => {
   //contem o erro caso ocorra e me fala qual é (crio uma função para guardá-lo)
