@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+}
+
+/* 2. Aplica Flexbox para empilhar itens verticalmente */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Garante que o conteúdo principal use todo o espaço livre */
+.content-wrapper { 
+    /* Esta classe deve envolver todo o conteúdo que NÃO é o footer. */
+    flex: 1; 
+    font-size: 30px;
+    /* Isso faz com que ele se expanda e empurre o footer para baixo. */
+}
+
+.content-wrapper a {
+    color: #000000;
+    text-decoration: none; 
+}
+
+.content-wrapper a:hover {
+    color: #787773; /* Exemplo: Mude para um tom de amarelo no hover */
+    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+}
