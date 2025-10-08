@@ -19,6 +19,9 @@ import ClientesController from "./controllers/ClientesController.js";
 import ProdutosController from "./controllers/ProdutosController.js";
 import PedidosController from "./controllers/PedidosController.js";
 
+// configurando o express para permitir o recebimento de dados vindos de formulários
+app.use(express.urlencoded({extended: false}))
+
 // Define o EJS como Renderizador de páginas
 app.set("view engine", "ejs");
 // Define o uso da pasta "public" para uso de arquivos estáticos

@@ -1,0 +1,31 @@
+<%- include ('partials/header.ejs') %>
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Alterar clientes</h1>
+            </div>
+            <div class="card-body">
+                <!-- formulario de edição -->
+                 <form action="" method="POST"> <!-- action = p onde vai enviar os dados -->
+                    <label>Nome do cliente:</label>
+                    <input type="text" name="nome" placeholder=" Insira o nome do cliente"
+                     class="form-conrol" value="<%= cliente.nome %>" required>
+                     <!-- value serve para fazer que o input ja venha preenchido -->
+
+                    <br> <label>CPF do cliente:</label>
+                    <input type="text" name="cpf" placeholder=" Insira o nome do cliente"
+                     class="form-conrol" value="<%= cliente.cpf %>" required>
+
+                    <br> <label>Endereço do cliente:</label>
+                    <input type="text" name="endereco" placeholder=" Insira o nome do cliente"
+                     class="form-conrol mb-4" value="<%= cliente.endereco %>" required>
+
+                    <br><input type="submit" class="btn btn-success" value="Alterar">
+                    <input type="reset" class="btn btn-danger" value="Limpar">
+                 </form>
+            </div>
+        </div>
+    </div>
+<%- include ('partials/footer.ejs') %>
