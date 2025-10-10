@@ -8,7 +8,9 @@
             </div>
             <div class="card-body">
                 <!-- formulario de edição -->
-                 <form action="" method="POST"> <!-- action = p onde vai enviar os dados -->
+                 <form action="/clientes/update" method="POST"> <!-- action = p onde vai enviar os dados -->
+                    <input type="hidden" name="id" value="<%= cliente.id %>">
+
                     <label>Nome do cliente:</label>
                     <input type="text" name="nome" placeholder=" Insira o nome do cliente"
                      class="form-conrol" value="<%= cliente.nome %>" required>
@@ -22,8 +24,11 @@
                     <input type="text" name="endereco" placeholder=" Insira o nome do cliente"
                      class="form-conrol mb-4" value="<%= cliente.endereco %>" required>
 
-                    <br><input type="submit" class="btn btn-success" value="Alterar">
-                    <input type="reset" class="btn btn-danger" value="Limpar">
+                    <br><input onclick="return confirm ('Confirma as alterações realizadas para o(a) cliente <%= cliente.nome %>?')" 
+                    type="submit" class="btn btn-warning" value="Alterar"/>
+                    <a href="/clientes">
+                    <input type="button" class="btn btn-danger" value="Cancelar"/>
+                    </a>
                  </form>
             </div>
         </div>

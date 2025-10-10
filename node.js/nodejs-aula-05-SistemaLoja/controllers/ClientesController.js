@@ -61,4 +61,24 @@ router.get("/clientes/edit/:id", (req, res) =>{
   });
 });
 
+//ROTA DE ALTERAÇÃO DE CLIENTES
+router.post("/clientes/update", (req, res) => {
+  //coletando os dados do formulario
+  const id = req.body.id //usar body para buscar coisas que vem do body, como o formulario
+  const nome = req.body.nome
+  const cpf = req.body.cpf
+  const endereco = req.body.endereco
+  Cliente.update({
+    nome :nome,
+    cpf : cpf,
+    endereco : endereco
+  },
+  { where : {id : id}}
+  ).then (() => {
+    res.redirect("/clientes");
+  }).catch(error => {
+    console.log(error)
+  })
+})
+
 export default router;
