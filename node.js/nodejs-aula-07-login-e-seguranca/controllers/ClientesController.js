@@ -2,8 +2,11 @@ import express from "express";
 import Cliente from "../models/Cliente.js";
 const router = express.Router();
 
+//importando o middlearw de autenticação 
+import Auth from "../middleware/Auth.js";
+
 // ROTA CLIENTES
-router.get("/clientes", function (req, res) {
+router.get("/clientes", Auth, function (req, res) {
   Cliente.findAll().then((clientes) => {
     res.render("clientes", {
       clientes: clientes,
@@ -14,7 +17,7 @@ router.get("/clientes", function (req, res) {
 });
 
 // ROTA DE CADASTRO DE CLIENTES
-router.post("/clientes/new", (req, res) => {
+router.post("/clientes/new", Auth, (req, res) => {
   const nome = req.body.nome;
   const cpf = req.body.cpf;
   const endereco = req.body.endereco;
@@ -30,7 +33,7 @@ router.post("/clientes/new", (req, res) => {
 });
 
 // ROTA DE EXCLUSÃO DE CLIENTES
-router.get("/clientes/delete/:id", (req, res) => {
+router.get("/clientes/delete/:id", Auth, (req, res) => {
   const id = req.params.id;
   Cliente.destroy({
     where: {
@@ -46,7 +49,7 @@ router.get("/clientes/delete/:id", (req, res) => {
 });
 
 // ROTA DE EDIÇÃO DE CLIENTES
-router.get("/clientes/edit/:id", (req, res) => {
+router.get("/clientes/edit/:id", Auth, (req, res) => {
   const id = req.params.id;
   Cliente.findByPk(id).then(function (cliente) {
     res.render("clienteEdit", {
@@ -58,7 +61,7 @@ router.get("/clientes/edit/:id", (req, res) => {
 });
 
 // ROTA DE ALTERAÇÃO DE CLIENTES
-router.post("/clientes/update/:id", (req, res) => {
+router.post("/clientes/update/:id", Auth, (req, res) => {
   const id = req.body.id;
   const nome = req.body.nome;
   const cpf = req.body.cpf;

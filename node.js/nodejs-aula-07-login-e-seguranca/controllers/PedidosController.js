@@ -4,6 +4,7 @@ import Pedido from "../models/Pedido.js";
 import Cliente from "../models/Cliente.js";
 const router = express.Router();
 
+
 // ROTA PEDIDOS
 router.get("/pedidos", function (req, res) {
   // realiza ambas as consutas em paralelo dentro de uma promessa

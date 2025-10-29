@@ -1,9 +1,15 @@
 // Importando o Express
 import express from "express" 
+
 // Iniciando o Express
 const app = express() 
+
+//importando o express-session (gerador de sessões)
+import session from "express-session"
+
 // Importando o Sequelize
 import connection from "./config/sequelize-config.js" 
+
 // Importando os Controllers
 import ClientesController from "./controllers/ClientesController.js"
 import PedidosController from "./controllers/PedidosController.js"
@@ -18,6 +24,14 @@ import Cliente from "./models/Cliente.js";
 
 //importando os relacionamentos
 import defineAssociations from "./config/associations.js";
+
+//configurando o expression-session
+app.use(session({
+    secret: "minhalojasecret",
+    cookie: {maxAge: 3600000}, //sessão expira em 1 hora
+    saveUninitialized: false,
+    resave: false
+}))
 
 // Realizando a conexão com o banco de dados
 connection.authenticate().then(()=> {
