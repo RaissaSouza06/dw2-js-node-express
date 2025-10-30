@@ -7,12 +7,16 @@ import bcrypt from "bcrypt";
 
 // ROTA DE LOGIN
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {
+    hasNoSession: true,
+  });
 });
 
 // ROTA DE CADASTRO
 router.get("/cadastro", (req, res) => {
-  res.render("cadastro");
+  res.render("cadastro", {
+    hasNoSession: true,
+  });
 });
 
 // ROTA DE CRIAÇÃO DE USUÁRIO

@@ -4,7 +4,9 @@ function Auth(req, res, next){
         //permite a copntinuação da requisição
         next()
     } else { //se não estiver logado 
-        res.render("login");
+        res.render("login", {
+            hasNoSession: true,
+        });
     }
 }
 

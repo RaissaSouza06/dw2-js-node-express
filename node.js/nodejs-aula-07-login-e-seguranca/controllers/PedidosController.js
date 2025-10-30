@@ -4,9 +4,11 @@ import Pedido from "../models/Pedido.js";
 import Cliente from "../models/Cliente.js";
 const router = express.Router();
 
+//importando o middlearw de autenticação 
+import Auth from "../middleware/Auth.js";
 
 // ROTA PEDIDOS
-router.get("/pedidos", function (req, res) {
+router.get("/pedidos", Auth, function (req, res) {
   // realiza ambas as consutas em paralelo dentro de uma promessa
   Promise.all([
   Pedido.findAll({
@@ -32,7 +34,7 @@ router.get("/pedidos", function (req, res) {
 });
 
 // ROTA DE CADASTRO DE PEDIDOS
-router.post("/pedidos/new", (req, res) => {
+router.post("/pedidos/new", Auth, (req, res) => {
   const numero = req.body.numero;
   const valor = req.body.valor;
   const clienteId = req.body.clienteId;
@@ -48,7 +50,7 @@ router.post("/pedidos/new", (req, res) => {
 });
 
 // ROTA DE EXCLUSÃO DE CLIENTES
-router.get("/pedidos/delete/:id", (req, res) => {
+router.get("/pedidos/delete/:id", Auth, (req, res) => {
   const id = req.params.id;
   Pedido.destroy({
     where: {id: id}
