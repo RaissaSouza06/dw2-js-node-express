@@ -1,0 +1,53 @@
+html, body {
+    padding: 0;
+    margin: 0; 
+    height: 100%; 
+} 
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.imagem-container {
+    text-align: center;
+    padding: 20px 0;
+    max-width: 100%; 
+    height: auto;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.container-conteudo {
+    padding: 20px 40px; 
+}
+
+footer {
+    text-align: center;    
+    margin-top: auto;
+}
+
+
+.card { 
+    flex: 1; 
+    font-size: 20px;
+    
+}
+
+.card-body a{
+    color: #000000;
+    text-decoration: none; 
+    /* Passo 1: Configuração para o redimensionamento */
+    display: inline-block; 
+    transition: transform 0.3s ease-in-out, color 0.2s; /* Transição para tamanho e cor */
+}
+
+
+.card-body a:hover {
+    color: #787773;
+    text-decoration: none; 
+    transform: scale(1.1); 
+}

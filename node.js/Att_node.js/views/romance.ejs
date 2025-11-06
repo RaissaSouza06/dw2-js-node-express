@@ -1,0 +1,72 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+
+<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Cadastrar filmes de romance</h1>
+            </div>
+            <div class="card-body">
+                <!-- formulario de caedastro -->
+                 <form action="/romance/new" method="POST"> <!-- action = p onde vai enviar os dados -->
+                    <label>Nome do filme:</label>
+                    <input type="text" name="nome" placeholder=" Insira o nome do filme"
+                     class="form-conrol" required>
+
+                    <br> <label>Ator principal do filme:</label>
+                    <input type="text" name="ator" placeholder=" Insira o nome do ator principal do filme"
+                     class="form-conrol" required>
+
+                     <br> <label>Ano de lançamento do filme:</label>
+                    <input type="text" name="ano" placeholder=" Insira o ano de lançamento do filme"
+                     class="form-conrol" required>
+
+                    <br><input type="submit" class="btn btn-success" value="Cadastrar">
+                    <input type="reset" class="btn btn-danger" value="Limpar">
+                 </form>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="container-conteudo"> 
+  <h1>Página de Filmes de Romance</h1>
+      <hr />
+      <h3>Lista de top melhores filmes de romance:</h3>
+      
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Nome</th>
+            <th>Atores principais</th>
+            <th>Ano lançamento</th>
+             <th colspan="2" style="text-align: center;">Ações:</th> 
+          </tr>
+        </thead>
+        <Tbody>
+          <!-- FOREACH -->
+          <% romance.forEach(romance => { %>
+          <tr>
+              <td>
+                <%= romance.nome %>
+              </td>
+              <td>
+                <%= romance.ator %>
+              </td>
+              <td>
+                <%= romance.ano %>
+              </td>
+              <td>
+                <a style="color: orange;" href="romance/edit/<%= romance.id %>">Editar</a>
+              </td>
+              <td>
+                <a style="color: red;" href="/romance/delete/<%= romance.id %>">Excluir</a>
+              </td>
+          </tr>
+          <% }) %>
+        </Tbody>
+      </table>
+      <a href="/">Voltar</a>
+</div>
+
+<%- include ('partials/footer.ejs') %>

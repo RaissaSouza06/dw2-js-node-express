@@ -1,0 +1,36 @@
+<%- include ('partials/header.ejs') %>
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Alterar Filmes de Romance</h1>
+            </div>
+            <div class="card-body">
+                <!-- formulario de edição -->
+                 <form action="/comedia/update" method="POST"> <!-- action = p onde vai enviar os dados -->
+                    <input type="hidden" name="id" value="<%= romance.id %>">
+
+                    <label>Nome do filme:</label>
+                    <input type="text" name="nome" placeholder=" Insira o nome do filme"
+                     class="form-conrol" value="<%= romance.nome %>" required>
+                     <!-- value serve para fazer que o input ja venha preenchido -->
+
+                    <br> <label>Ator principal do filme:</label>
+                    <input type="text" name="ator" placeholder=" Insira o nome do ator principal do filme"
+                     class="form-conrol" value="<%= romance.ator %>" required>
+
+                    <br> <label>Ano do filme:</label>
+                    <input type="text" name="ano" placeholder=" Insira o ano do filme"
+                     class="form-conrol mb-4" value="<%= romance.ano %>" required>
+
+                    <br><input onclick="return confirm ('Confirma as alterações realizadas para o filme <%= romance.nome %>?')" 
+                    type="submit" class="btn btn-warning" value="Alterar"/>
+                    <a href="/acao">
+                    <input type="button" class="btn btn-danger" value="Cancelar"/>
+                    </a>
+                 </form>
+            </div>
+        </div>
+    </div>
+<%- include ('partials/footer.ejs') %>
